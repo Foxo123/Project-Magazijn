@@ -19,4 +19,3 @@ create table Artikel (
         FOREIGN KEY (category) REFERENCES Category(category)
         
  );
- 
