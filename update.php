@@ -1,3 +1,23 @@
+<?php
+include("./connect_db.php");
+include("./Database.php");
+
+$db = new Database();
+
+$category = $_GET['category'];
+
+$sql = $db->conn->prepare("SELECT * FROM `category` WHERE `category` = '$category'");
+$sql->execute();
+
+$sql->setFetchMode(PDO::FETCH_ASSOC);
+
+$records = $sql->fetch();
+
+// echo "<pre>"; var_dump($record); echo "</pre>";
+
+
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -13,17 +33,14 @@
 </head>
 
 <body>
-    <form>
+    <form action="./update_script.php" method="post">
         <div class="col-3">
             <label for="exampleInputName" class="form-label">Categorie naam</label>
-            <input type="name" class="form-control" id="exampleInputName" aria-describedby="emailName">
+            <input type="name" class="form-control" id="exampleInputName" aria-describedby="emailName" name="category" value="<?php echo $records["category"]; ?>">
         </div>
-        <div class="col-3">
-            <label for="exampleInputName" class="form-label">Omschrijving</label>
-            <input type="name" class="form-control" id="exampleInputName" aria-describedby="emailName">
-        </div>
+
         <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type=" submit" class="btn btn-primary">Submit</button>
     </form>
     <!-- Optional JavaScript; choose one of the two! -->
 

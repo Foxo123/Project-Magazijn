@@ -1,3 +1,45 @@
+<?php
+include("./connect_db.php");
+include("./Database.php");
+
+$db = new Database();
+
+$sql = $db->conn->prepare("SELECT * FROM category");
+$sql->execute();
+
+$sql->setFetchMode(PDO::FETCH_ASSOC);
+
+// Dit is de select query voor het opvragen van alle records uit de tabel users.
+// $sql = "SELECT * FROM magazijn";
+
+// // Dit is de functie edie de query $sql via de verbinding $conn naar de database stuurt.
+
+// $result = mysqli_query($conn, $sql);
+
+$records = "";
+
+// De while loop geeft alle gegevens weer uit de tabel users.
+
+while ($record = $sql->fetch()) {
+    $records .= "<tr>
+            <td>"  . $record["category"] . "</td>
+            <td>
+                    <a href='./update.php?category=" . $record["category"] . "'>
+                        <img src='./img/edit.png' alt='pencil'>
+                    </a>
+                </td>
+                <td>
+                    <a href='./delete.php?id=" . $record["category"] . "'>
+                        <img src='./img/remove.png' alt='remove'>
+                    </a>
+                </td>
+            </tr>
+            </td>
+            </tr>";
+}
+var_dump($records)
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -17,14 +59,13 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">id</th>
                 <th scope="col">Categorie naam</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Laptops</td>
+            <?= $records ?>
+            <!-- <tr>
+                <td></td>
                 <td>
                     <a href='./categoriebewerk.php'>
                         <img src='./img/edit.png' alt='pencil'>
@@ -37,7 +78,6 @@
                 </td>
             </tr>
             <tr>
-                <th scope="row">2</th>
                 <td>Hamers</td>
                 <td>
                     <a href='./categoriebewerk.php'>
@@ -51,7 +91,6 @@
                 </td>
             </tr>
             <tr>
-                <th scope="row">3</th>
                 <td>Beeldschermen</td>
                 <td>
                     <a href='./categoriebewerk.php'>
@@ -64,7 +103,7 @@
                     </a>
                 </td>
 
-            </tr>
+            </tr> -->
         </tbody>
     </table>
     <!-- Optional JavaScript; choose one of the two! -->
