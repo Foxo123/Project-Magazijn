@@ -29,7 +29,7 @@ while ($record = $sql->fetch()) {
                     </a>
                 </td>
                 <td>
-                    <a href='./delete.php?id=" . $record["category"] . "'>
+                    <a href='./delete.php?category=" . $record["category"] . "'>
                         <img src='./img/remove.png' alt='remove'>
                     </a>
                 </td>
@@ -37,7 +37,6 @@ while ($record = $sql->fetch()) {
             </td>
             </tr>";
 }
-var_dump($records)
 ?>
 
 <!doctype html>
@@ -56,6 +55,8 @@ var_dump($records)
 
 <body>
     <h1 style="text-align: center;">Categorie beheer</h1>
+    <a href="./create_pagina.php"><button type="button" class="btn btn-secondary btn-lg">Categorie aanmaken</button></a>
+
     <table class="table">
         <thead>
             <tr>

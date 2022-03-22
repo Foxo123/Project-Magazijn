@@ -1,23 +1,3 @@
-<?php
-include("./connect_db.php");
-include("./Database.php");
-
-$db = new Database();
-
-$category = $_GET['category'];
-
-$sql = $db->conn->prepare("SELECT * FROM `category` WHERE `category` = '$category'");
-$sql->execute();
-
-$sql->setFetchMode(PDO::FETCH_ASSOC);
-
-$records = $sql->fetch();
-
-// echo "<pre>"; var_dump($record); echo "</pre>";
-
-
-
-?>
 <!doctype html>
 <html lang="en">
 
@@ -29,15 +9,14 @@ $records = $sql->fetch();
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="categorie.css">
-    <title>Categorie bewerken</title>
+    <title>Categorie aanmaken</title>
 </head>
 
 <body>
-    <form action="./update_script.php" method="post">
+    <form action="./create.php" method="post">
         <div class="col-3">
             <label for="exampleInputName" class="form-label">Categorie naam</label>
-            <input type="name" class="form-control" id="exampleInputName" aria-describedby="emailName" name="category" value="<?php echo $records["category"]; ?>">
-            <input type="hidden" name="old-category" value="<?=$records["category"]?>">
+            <input type="name" class="form-control" id="exampleInputName" aria-describedby="emailName" name="category">
         </div>
 
         <br>

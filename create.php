@@ -1,5 +1,6 @@
 <?php
 // Maak contact met de database
+ob_start();
 $db_host = "localhost";
 $db_user = "root";
 $db_pass = "";
@@ -13,25 +14,22 @@ $db = new Database();
 try {
     $conn = $db->conn;
 
-    // sql delete a record
-    $sql = "DELETE FROM category WHERE category=:category";
+    // prepare sql and bind parameters
+    $stmt = $conn->prepare("INSERT INTO category(category) VALUES (:category)");
 
-
-    $stmt = $conn->prepare($sql);
     $stmt->bindParam(':category', $category);
 
-    if (!isset($_GET['category'])) {
-        header("Location: ./read.php");
-        exit();
-    }
+    // insert a row
+    $category = $_POST["category"];
 
-    $category = $_GET['category'];
+    var_dump($stmt->queryString);
 
     $stmt->execute();
-    echo "record met category={$category} is verwijderd";
+
+    echo "New records created succesfully";
     header("Refresh:2; ./read.php");
 } catch (PDOException $e) {
-    echo $sql . "<br>" . $e->getMessage();
+    echo $e->getMessage();
+    header("Location: ./index.php");
 }
-
 $conn = null;
