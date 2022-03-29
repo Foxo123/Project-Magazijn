@@ -40,17 +40,23 @@ require_once './class.php';
 
                 </ul>
               </div>
- 
+              <td>
+              <a href='./Goedkeuren.php? id=". $record->id . "'>
+              <button type='button' class='btn btn-success' href='./Goedkeuren.php? id='>goedkeuren" . $record->id . "</button>
+            </td>
+             </a>
+             <td>
+             <a href='./reject.php? id=". $record->id . "'>
+             <button type='button' class='btn btn-success' href='./reject.php? id='>afkeuren" . $record->id . "</button>
+           </td>
+            </a>
              
-
-              <button type='button' class='btn btn-success' href='./Goedkeurenafkeuren.php? id='>goedkeuren" . $record->id . "</button>
-              <button type'button' class='btn btn-danger' href='Goedkeuren.php?id=$record->id'>afkeuren". $record->inkoopprijs .    " </button>
               
               
             ";}
            
             return $records;
-            
+            //<button type='button' class='btn btn-success' href='./Goedkeurenafkeuren.php? id='>goedkeuren" . $record->id . "</button>
         }catch(PDOException $e){
           //this is for the errors
             array_push($this->logs,"reading failed" . $e->getMessage());

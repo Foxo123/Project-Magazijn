@@ -13,8 +13,10 @@
   <body>
     <h1>Hello, world!</h1>
   <!-- the buttons for the magazijnen and goedkeuren --> 
-    <a class="btn btn-primary" href="./artikelen_goedkeuren_afkeuren.php" role="button">Link</a>
-    <a class="btn btn-primary" href="./magazijnen.php" role="button">Link</a>
+    <a class="btn btn-primary" href="./artikelen_goedkeuren_afkeuren.php" role="button">goedkeuren/afkeuren</a>
+    <a class="btn btn-primary" href="./magazijnen.php" role="button">magazijn</a>
+    <a class="btn btn-primary" href="./overzichtEigenaar.php" role="button">eigenaar</a>
+   
 
     <!-- Optional JavaScript; choose one of the two! -->
 
