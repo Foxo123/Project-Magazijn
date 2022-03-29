@@ -18,6 +18,7 @@ class Goedkeuren{
 
     function goedkeuren(){
       try {
+      
       $id = $_GET["id"];
       
           $sql = $this->conn->prepare("UPDATE `artikel` SET `goedgekeurd` = TRUE WHERE `id` = $id");

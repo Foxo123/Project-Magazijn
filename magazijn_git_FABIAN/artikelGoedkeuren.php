@@ -47,7 +47,7 @@ require_once './class.php';
              </a>
              <td>
              <a href='./reject.php? id=". $record->id . "'>
-             <button type='button' class='btn btn-success' href='./reject.php? id='>afkeuren" . $record->id . "</button>
+             <button type='button' class='btn btn-danger' href='./reject.php? id='>afkeuren" . $record->id . "</button>
            </td>
             </a>
              
