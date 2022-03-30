@@ -49,7 +49,7 @@ $records = $sql->fetch();
             <input type="name" class="form-control" id="exampleInputName" aria-describedby="emailName" name="owner" value="<?php echo $records["owner"]; ?>">
             <input type="hidden" name="old-owner" value="<?= $records["owner"] ?>">
         </div>
-
+        <input type="hidden" name="id" value=<?= $id ?>>
 
         <br>
         <button type=" submit" class="btn btn-primary">Submit</button>
