@@ -36,6 +36,7 @@ require_once './class.php';
                 <p  class='card-text'>" . $record->aantal . "</p>
                
                 <p class='card-text'>" . $record->inkoopprijs . "</p>
+                <p  class='card-text'>" . $record->goedgekeurd . "</p>
                  
 
                 </ul>
