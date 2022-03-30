@@ -1,4 +1,4 @@
-/* drop database Magazijn; */
+drop database Magazijn;
 
 create database Magazijn;
 use Magazijn;
@@ -13,10 +13,10 @@ create table Artikel (
         omschrijving varchar(255) not null,
         category varchar(255) not null,
         aantal int not null,
-        kosten double,
+        kosten float,
         locatie varchar(255),
+        geleend bit,
         PRIMARY KEY (artikelid),
         FOREIGN KEY (category) REFERENCES Category(category)
         
  );
- 
