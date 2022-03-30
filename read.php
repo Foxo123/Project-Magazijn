@@ -4,7 +4,7 @@ include("./Database.php");
 
 $db = new Database();
 
-$sql = $db->conn->prepare("SELECT * FROM magijzenen");
+$sql = $db->conn->prepare("SELECT * FROM magazijnen");
 $sql->execute();
 
 $sql->setFetchMode(PDO::FETCH_ASSOC);
@@ -22,14 +22,18 @@ $records = "";
 
 while ($record = $sql->fetch()) {
     $records .= "<tr>
-            <td>"  . $record["category"] . "</td>
+            <td>"  . $record["id"] . "</td>
+            <td>"  . $record["locatie"] . "</td>
+            <td>"  . $record["acadamie"] . "</td>
+            <td>"  . $record["owner"] . "</td>
+
             <td>
-                    <a href='./update.php?category=" . $record["category"] . "'>
+                    <a href='./update.php?id=" . $record["id"] . "'>
                         <img src='./img/edit.png' alt='pencil'>
                     </a>
                 </td>
                 <td>
-                    <a href='./delete.php?category=" . $record["category"] . "'>
+                    <a href='./delete.php?id=" . $record["id"] . "'>
                         <img src='./img/remove.png' alt='remove'>
                     </a>
                 </td>
@@ -50,17 +54,21 @@ while ($record = $sql->fetch()) {
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Categorie beheer</title>
+    <title>Magazijn beheer</title>
 </head>
 
 <body>
-    <h1 style="text-align: center;">Categorie beheer</h1>
-    <a href="./create_pagina.php"><button type="button" class="btn btn-secondary btn-lg">Categorie aanmaken</button></a>
+    <h1 style="text-align: center;">Magazijn beheer</h1>
+    <a href="./create_pagina.php"><button type="button" class="btn btn-secondary btn-lg">Magazijn aanmaken</button></a>
 
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Categorie naam</th>
+                <th scope="col">id</th>
+                <th scope="col">Locatie</th>
+                <th scope="col">Academie</th>
+                <th scope="col">Eigenaar</th>
+
             </tr>
         </thead>
         <tbody>
