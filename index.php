@@ -17,6 +17,7 @@
     <div class="container" style="padding-top: 25px;">
         <h1> Home  </h1>
         <a href="./Tom/" style="padding-top: 10px;"><button type="button" class="btn btn-secondary">Toms werk</button></a>
+        <a href="./magazijn_git_fabian/" style="padding-top: 10px;"><button type="button" class="btn btn-secondary">Fabians werk</button></a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
